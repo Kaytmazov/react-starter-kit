@@ -8,13 +8,12 @@ import LoadingIndicator from '../components/generic/LoadingIndicator';
 const DocumentsPage = lazy(() => import('./documents-page'));
 const ServicesPage = lazy(() => import('./services-page'));
 const SmevPage = lazy(() => import('./smev-page'));
-const NotFoundPage = lazy(() => import('./not-found-page'));
 
 const AppView = () => (
   <AppLayout>
-    <Suspense fallback={<LoadingIndicator />}>
-      <Switch>
-        <Redirect from="/" to="/documents" exact />
+    <Switch>
+      <Suspense fallback={<LoadingIndicator />}>
+        <Redirect to="/documents" exact />
         <Route path="/documents">
           <DocumentsPage />
         </Route>
@@ -24,11 +23,8 @@ const AppView = () => (
         <Route path="/smev">
           <SmevPage />
         </Route>
-        <Route>
-          <NotFoundPage />
-        </Route>
-      </Switch>
-    </Suspense>
+      </Suspense>
+    </Switch>
   </AppLayout>
 );
 

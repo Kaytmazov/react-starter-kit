@@ -87,7 +87,7 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
   user: PropTypes.shape({
-    userData: PropTypes.object,
+    userData: PropTypes.oneOfType([PropTypes.object]),
     loading: PropTypes.bool.isRequired,
     error: PropTypes.instanceOf(Error),
   }).isRequired,
